@@ -17,10 +17,10 @@ class Review:
         pass
 
     def load_data(self, log_id):
-        # today = datetime.now().date()
-        # log = UserLog.objects.filter(log_date__year=today.year,
-        #                              log_date__month=today.month,
-        #                              log_date__day=today.day)
+        today = datetime.now().date()
+        log = list(UserLog.objects.filter(log_date__year=today.year,
+                                     log_date__month=today.month,
+                                     log_date__day=today.day).values())
         # server = '혬띠 서버랑 포트를 넣어보쟈'
         # url = 'api/event/detail/list/'
         # params = '뀨?'
@@ -48,9 +48,12 @@ class Review:
                  "location" : "서울",
                  "description":"test333"
                  }]
-        log = list(UserLog.objects.filter(log_date__year=2021,
-                                          log_date__month=11,
-                                          log_date__day=19).values())
+        # log = list(UserLog.objects.filter(log_date__year=2021,
+        #                                   log_date__month=11,
+        #                                   log_date__day=19).values())
+
+        ic(log)
+        ic(event)
 
     def extract_keyword(self):
         pass

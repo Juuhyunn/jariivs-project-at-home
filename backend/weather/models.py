@@ -1,5 +1,5 @@
 import datetime as dt
-from datetime import datetime
+from datetime import datetime, timedelta
 
 import requests
 
@@ -26,6 +26,10 @@ class Weather(object):
             'nx': f'{nx}',
             'ny': f'{ny}'}
         response = requests.get(url, params=params)
+        # if response.json()['response']['header']['resultMsg'] == 'NO_DATA':
+        #     print('실패')
+        #     self.weather_now()
+        print(response.json()['response']['header']['resultMsg'])
         weather = response.json().get('response').get('body').get('items')
         weather = list(weather.values())[0]
         for i in weather:
@@ -92,6 +96,7 @@ class Weather(object):
         # 현재 api를 가져오려는 시점의 이전 시각에 업데이트된 데이터를 base_time, base_date로 설정
         if now.hour < 2 or (now.hour == 2 and now.minute <= 10):  # 0시~2시 10분 사이
             base_time = "2300"
+            base_date = self.date_string(now - timedelta(days=1))
         elif now.hour < 5 or (now.hour == 5 and now.minute <= 10):  # 2시 11분~5시 10분 사이
             base_time = "0200"
         elif now.hour < 8 or (now.hour == 8 and now.minute <= 10):  # 5시 11분~8시 10분 사이

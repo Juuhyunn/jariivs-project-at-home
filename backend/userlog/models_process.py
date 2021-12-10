@@ -64,7 +64,7 @@ class LogData(object):
 
     def create_study(self):
         test1 = ['진행', '운동', '노력', '코딩', '공부', '커밋', '작업', '개발']
-        test2 = ['술술', '직접', '스스로', '열심히']
+        test2 = ['직접', '스스로', '열심히']
         return {'location': '비트캠프',
                 'address': '',
                 'log_type': 'study',
