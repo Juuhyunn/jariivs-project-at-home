@@ -67,27 +67,42 @@ class RoutineTest:
                     test_date = test['log_date']
                     test_cron = [0, 0, test['log_date'].hour, 0, 0, test['log_date'].weekday()]
                     if i == j:
-                        if test_cron[5] == cron[5]:
-                            # [[case 1]] contents + location + cron
+                        grade = grade + 1
+                        if test_cron[2] == cron[2]:
+                            # [[case 1]] contents + location + cron == 3
+                            grade = grade + 2
                             print('[[case 1]] contents + location + cron')
                             print(f'cron : {cron}')
                             print(f'test_cron : {test_cron}')
+                            # checking weekday
+                            if test_cron[5] == cron[5]:
+                                grade = grade + 1
+                        elif cron[2]-2 < test_cron[2] < cron[2]+2:
+                            # [[case 1]] contents + location + cron == 2
+                            grade = grade + 1
+                            print('[[case 1]] contents + location + cron (2시간 정도 여유)')
+                            print(f'cron : {cron}')
+                            print(f'test_cron : {test_cron}')
+                            # checking weekday
+                            if test_cron[5] == cron[5]:
+                                grade = grade + 1
                         else:
-                            # [[case 2]] contents + location
+                            # [[case 2]] contents + location == 1
                             print('[[case 2]] contents + location')
-                            cron[5] = 0
+                            cron[2] = 0
                             print(f'cron : {cron}')
                             print(f'test_cron : {test_cron}')
                     else:
-                        # [[case 4]] location + cron
-                        if test_cron[5] != cron[5]:
-                            cron[5] = 0
-                        print(f'cron : {cron}')
-                        print(f'test_cron : {test_cron}')
+                        pass
+                        # [[case 4]] location + cron == 1
+                        # if test_cron[2] != cron[2]:
+                        #     cron[2] = 0
+                        # print(f'cron : {cron}')
+                        # print(f'test_cron : {test_cron}')
                     # [[case 3]] contents + cron
                     pass
 
-
+            print(f'grade : {grade}')
             # checking similar cron
             # similar_day = {location: list(UserLog.objects.filter(location=location).values())}
             # print(f'** similar_location : ')
