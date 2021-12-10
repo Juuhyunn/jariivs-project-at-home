@@ -14,7 +14,7 @@ class Routine(models.Model):
     # event_repeat = models.IntegerField()
     priority = models.IntegerField()
     grade = models.IntegerField()
-    contents = ListTextField(base_field=IntegerField(), size=100,)
+    contents = models.TextField()
     cron = ListTextField(base_field=IntegerField(), size=100,)
     # event_id = models.IntegerField()
     log_id = ListTextField(base_field=IntegerField(), size=100,)      # fk
