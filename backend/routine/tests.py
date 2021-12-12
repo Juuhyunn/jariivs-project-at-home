@@ -23,6 +23,7 @@ class RoutineTest:
         today_log = list(UserLog.objects.filter(log_date__year=today.year,
                                           log_date__month=today.month,
                                           log_date__day=today.day).values())
+        days = ['sun', 'mon', 'tue', 'wed', 'thu', 'fri', 'sat']
         # checking similar routine
         for log in today_log:
             location = log['location']
@@ -30,7 +31,7 @@ class RoutineTest:
             # time = log['log_date'].hour
             full_texts = log['contents']
             contents = []
-            cron = [0, 0, log['log_date'].hour, 0, 0, log['log_date'].weekday()]
+            cron = [0, 0, log['log_date'].hour, 0, 0, {days[log['log_date'].weekday()]:1}]
             grade = 0
             for i in Okt().pos(full_texts):
                 if i[1] == 'Noun':
@@ -65,9 +66,10 @@ class RoutineTest:
                     test = UserLog.objects.filter(pk=j).values()[0]
                     print(f'test : {test}')
                     test_date = test['log_date']
-                    test_cron = [0, 0, test['log_date'].hour, 0, 0, test['log_date'].weekday()]
+                    test_cron = [0, 0, test['log_date'].hour, 0, 0, {days[test['log_date'].weekday()]:1}]
                     if i == j:
                         grade = grade + 1
+                        # 시간 확인
                         if test_cron[2] == cron[2]:
                             # [[case 1]] contents + location + cron == 3
                             grade = grade + 2
@@ -75,8 +77,8 @@ class RoutineTest:
                             print(f'cron : {cron}')
                             print(f'test_cron : {test_cron}')
                             # checking weekday
-                            if test_cron[5] == cron[5]:
-                                grade = grade + 1
+                            self.checking_days(cron, test_cron, grade)
+
                         elif cron[2]-2 < test_cron[2] < cron[2]+2:
                             # [[case 1]] contents + location + cron == 2
                             grade = grade + 1
@@ -107,6 +109,14 @@ class RoutineTest:
             # similar_day = {location: list(UserLog.objects.filter(location=location).values())}
             # print(f'** similar_location : ')
             # [print(i) for i in similar_location[location]]
+
+    def checking_days(self, cron, test_cron, grade):
+        if test_cron[5].find(cron[5]) > -1:
+            grade = grade + 1
+
+        else:
+            cron[5] = cron[5] + ',' + test_cron[5]
+        return cron, grade
 
 
 if __name__ == '__main__':
