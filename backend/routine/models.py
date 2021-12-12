@@ -1,7 +1,7 @@
 from datetime import datetime
 
 from django.db import models
-from django.db.models import IntegerField
+from django.db.models import IntegerField, CharField
 from django_mysql.models import ListTextField
 
 
@@ -15,9 +15,12 @@ class Routine(models.Model):
     priority = models.IntegerField()
     grade = models.IntegerField()
     contents = models.TextField()
-    cron = ListTextField(base_field=IntegerField(), size=100,)
+    location = models.TextField()
+    cron = ListTextField(base_field=CharField())
+    days = ListTextField(base_field=CharField())
+    hours = ListTextField(base_field=CharField())
     # event_id = models.IntegerField()
-    log_id = ListTextField(base_field=IntegerField(), size=100,)      # fk
+    log_id = ListTextField(base_field=IntegerField())      # fk
     user_id = models.IntegerField()     # fk
 
     class Meta:
