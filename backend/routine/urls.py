@@ -5,8 +5,10 @@ from django.conf.urls import url
 from routine import views
 
 urlpatterns = [
-    # url(r'process', views.process),
-    # url(r'upload', views.upload),
-    # url(r'find/(?P<year>\d{4})-(?P<month>\d{2})-(?P<day>\d{2})$', views.find),
+    url(r'test', views.test),
+    url(r'upload', views.upload),
+    url(r'find_all', views.find_all),
+    url(r'remove/(?P<pk>\w{0,500})$', views.remove),
     # url(r'modify', views.modify),
+    # url(r'find/(?P<year>\d{4})-(?P<month>\d{2})-(?P<day>\d{2})$', views.find),
 ]

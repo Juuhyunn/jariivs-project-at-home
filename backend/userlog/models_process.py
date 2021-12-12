@@ -11,7 +11,7 @@ from weather.models import Weather
 class LogData(object):
     def __init__(self):
         vo = ValueObject()
-        vo.context = 'location/img/'
+        vo.context = 'location/data/'
         vo.fname = 'location_data.csv'
         reader = Reader()
         # self.printer = Printer()
@@ -38,10 +38,12 @@ class LogData(object):
     def random_log(self):
         ls = self.dummy_from_db()
         num = random.randint(0 ,len(ls)-1)
-        if random.randint(0, 5) == 0:
+        if random.randint(0, 4) == 0:
             return self.create_visit(ls, num)
-        elif random.randint(0, 5) == 1:
+        elif random.randint(0, 4) == 1:
             return self.create_payment(ls, num)
+        elif random.randint(0, 4) == 2:
+            return self.create_workout()
         else:
             return self.create_study()
         # return self.create_visit(ls, num) if random.randint(0, 1) == 0 else self.create_payment(ls, num)
@@ -63,12 +65,30 @@ class LogData(object):
                 }
 
     def create_study(self):
-        test1 = ['진행', '운동', '노력', '코딩', '공부', '커밋', '작업', '개발']
-        test2 = ['직접', '스스로', '열심히']
+        test = [
+            "열심히 자바 공부를 했다.",
+            "DB 연결하는 작업을 했는데 어려웠다.",
+            "재미있게 파이썬 공부를 하고 개발해봤다.",
+            "작업물을 깃허브에 커밋했다.",
+        ]
         return {'location': '비트캠프',
                 'address': '',
                 'log_type': 'study',
-                'contents': f"{test2[random.randint(0 ,len(test2) -1)]} {test1[random.randint(0 ,len(test1) -1)]}했다."}
+                'contents': test[random.randint(0 ,len(test) -1)]
+                }
+
+    def create_workout(self):
+        test = [
+            "땀 날 때까지 조깅을 했다.",
+            "천천히 걷기 운동을 했다.",
+            "친구들과 배드민턴을 하고 놀았다.",
+            "마라톤 연습을 했다.",
+        ]
+        return {'location': '올림픽공원',
+                'address': '',
+                'log_type': 'workout',
+                'contents': test[random.randint(0 ,len(test) -1)]
+                }
 
     def dummy_from_csv(self):
         ls = []

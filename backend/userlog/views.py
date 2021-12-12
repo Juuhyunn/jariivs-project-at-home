@@ -20,7 +20,7 @@ from userlog.serializers import UserLogSerializer
 from weather.models import Weather
 
 
-@api_view(['GET'])
+@api_view(['GET', 'POST'])
 @parser_classes([JSONParser])
 def process(request):
     LogData().process()

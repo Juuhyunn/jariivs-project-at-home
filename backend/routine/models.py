@@ -11,16 +11,14 @@ from django_mysql.models import ListTextField
 class Routine(models.Model):
     create_date = models.DateTimeField(default=datetime.now())
     log_repeat = models.IntegerField()
-    # event_repeat = models.IntegerField()
     priority = models.IntegerField()
     grade = models.IntegerField()
-    contents = models.TextField()
-    location = models.TextField()
-    cron = ListTextField(base_field=CharField())
-    days = ListTextField(base_field=CharField())
-    hours = ListTextField(base_field=CharField())
-    # event_id = models.IntegerField()
-    log_id = ListTextField(base_field=IntegerField())      # fk
+    contents = models.TextField(null=True)
+    location = models.TextField(null=True)
+    cron = ListTextField(base_field=CharField(max_length=255), null=True)
+    days = ListTextField(base_field=CharField(max_length=255), null=True)
+    hours = ListTextField(base_field=CharField(max_length=255), null=True)
+    log_id = ListTextField(base_field=IntegerField(), null=True)      # fk
     user_id = models.IntegerField()     # fk
 
     class Meta:
