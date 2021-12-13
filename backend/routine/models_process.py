@@ -1,3 +1,4 @@
+import random
 from datetime import datetime
 
 from icecream import ic
@@ -5,6 +6,7 @@ import os
 
 from konlpy.tag import Okt
 
+from flower.models import Flower
 
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "api.settings")
 import django
@@ -45,6 +47,7 @@ class RoutineMaker:
         # Checking log
         for log in all_today:
             flag = 0
+            ic(f'full_texts : {log["contents"]}')
             ic('***** Checking log *****')
             log_id = log['id']
             location = log['location']
@@ -131,6 +134,22 @@ class RoutineMaker:
                         db.log_id = routine['log_id']
                         db.save()
                         flag = 1
+                        # update Flower
+                        flower = Flower.objects.get(title__iexact=routine_contents)
+                        flower_log = flower.log_id.append(log_id)
+                        flower.log_id = flower_log
+                        flower.save()
+                        flower.step = flower.step + 1 if flower.step < 15 else flower.step
+                        flower.save()
+                        if flower.step < 3:
+                            flower.grade = 0
+                        elif flower.step < 6:
+                            flower.grade = 1
+                        elif flower.step < 10:
+                            flower.grade = 2
+                        elif flower.step < 16:
+                            flower.grade = 3
+                        flower.save()
             # new routine
             if flag == 0:
                 Routine.objects.create(log_repeat=1,
@@ -144,3 +163,11 @@ class RoutineMaker:
                                        log_id=[log_id],
                                        user_id=user_id
                                        )
+                # new flower
+                Flower.objects.create(title=' '.join(contents),
+                                      grade=0,
+                                      step=1,
+                                      color=["RED", "BLUE", "YELLOW"][random.randint(0, 2)],
+                                      log_id=[log_id],
+                                      user_id=user_id
+                                      )

@@ -1,7 +1,8 @@
 from datetime import datetime
 
 from django.db import models
-
+from django.db.models import IntegerField
+from django_mysql.models import ListTextField
 # Create your models here.
 
 
@@ -12,7 +13,7 @@ class Diary(models.Model):
     drawing = models.TextField()
     contents = models.TextField()
     memo = models.TextField()
-    log_id = models.ForeignKey("userlog.UserLog", on_delete=models.CASCADE, db_column='log_id')     # fk
+    log_id = ListTextField(base_field=IntegerField(), null=True)     # fk
     user_id = models.IntegerField()         # fk
 
     class Meta:

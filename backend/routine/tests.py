@@ -1,4 +1,5 @@
 import os
+import random
 
 from icecream import ic
 from konlpy.tag import Okt
@@ -336,6 +337,7 @@ class RoutineTest:
 
 
 if __name__ == '__main__':
-    r = RoutineTest()
-    r.process(1)
+    # r = RoutineTest()
+    # r.process(1)
+    [print(["RED", "BLUE", "YELLOW"][random.randint(0, 2)]) for i in range(20)]
 
