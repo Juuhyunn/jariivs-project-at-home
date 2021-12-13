@@ -98,19 +98,20 @@ class RoutineMaker:
                                 grade += 1
                         ic('***** 변경 전 *****')
                         ic(routine)
-                        routine['log_repeat'] += 1
                         routine['grade'] += grade
                         routine['days'].append(day)
                         routine['hours'].append(time)
                         routine['log_id'].append(log_id)
+                        routine['log_repeat'] = len(routine['log_id'])
                         print(f"routine['grade'] :: {routine['grade']}")
                         print(f"routine['log_repeat'] :: {routine['log_repeat']}")
-                        routine['priority'] = routine['grade'] + routine['log_repeat']
+                        routine['priority'] = routine['grade'] * routine['log_repeat']
                         routine['cron'][2] = max(routine['hours'], key=routine['hours'].count)
+                        cron_day = []
                         for t in set(routine['days']):
-                            if routine['cron'][5].find(str(t)) == -1:
-                                if routine['days'].count(t) >= routine['days'].count(max(routine['days'], key=routine['days'].count)):
-                                    routine['cron'][5] = f"{routine['cron'][5]}.{t}"
+                            if routine['days'].count(t) >= routine['days'].count(max(routine['days'], key=routine['days'].count)):
+                                cron_day.append(t)
+                        routine['cron'][5] = '.'.join(cron_day)
                         routine['log_id'] = list(set(routine['log_id']))
                         ic('***** 변경 후 *****')
                         ic(routine)
@@ -143,8 +144,3 @@ class RoutineMaker:
                                        log_id=[log_id],
                                        user_id=user_id
                                        )
-
-
-if __name__ == '__main__':
-    r = RoutineMaker()
-    r.process(1)

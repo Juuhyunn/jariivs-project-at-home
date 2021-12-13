@@ -1,3 +1,5 @@
+from datetime import datetime
+
 from django.http import JsonResponse
 from django.shortcuts import render
 from icecream import ic
@@ -8,6 +10,7 @@ from rest_framework.parsers import JSONParser
 
 # Create your views here.
 from routine.models import Routine
+from routine.models_process import RoutineMaker
 from routine.serializers import RoutineSerializer
 
 
@@ -44,32 +47,12 @@ def upload(request):
     return JsonResponse({'Routine Upload': 'SUCCESS'})
 
 
-@api_view(['PUT'])
+@api_view(['GET', 'POST'])
 @parser_classes([JSONParser])
-def modify(request):
-    ic("********** modify **********")
-    edit = request.data
-    ic(edit)
-    routine = Routine.objects.get(pk=edit['id'])
-    db = Routine.objects.all().filter(id=edit['id']).values()[0]
-    print(f' 변경 전 : {db}')
-    db['log_repeat'] = edit['log_repeat']
-    db['create_date'] = edit['create_date']
-    db['priority'] = edit['priority']
-    db['grade'] = edit['grade']
-    db['contents'] = edit['contents']
-    db['location'] = edit['location']
-    db['cron'] = edit['cron']
-    db['days'] = edit['days']
-    db['hours'] = edit['hours']
-    db['log_id'] = edit['log_id']
-    print(f' 변경 후 : {db}')
-    serializer = RoutineSerializer(data=db)
-    # print(f'db type : {type(db)}  // serializer type : {type(serializer)}')
-    if serializer.is_valid():
-        serializer.update(routine, db)
-        return JsonResponse(data=serializer.data, safe=False)
-    return JsonResponse(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+def make_routine(request, user_id):
+    ic("********** make_routine **********")
+    RoutineMaker().process(user_id)
+    return JsonResponse({'Routine Making': 'SUCCESS'})
 
 
 @api_view(['DELETE'])
@@ -80,3 +63,16 @@ def remove(request, pk):
     db = Routine.objects.get(pk=pk)
     db.delete()
     return JsonResponse({'Routine DELETE': 'SUCCESS'})
+
+
+@api_view(['GET', 'POST'])
+@parser_classes([JSONParser])
+def today_top10(request, user_id):
+    ic("********** today_top10 **********")
+    days = ['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun']
+    today = days[datetime.now().weekday()]
+    ic(f"********** today : {today} **********")
+    routines = list(Routine.objects.filter(user_id=user_id).order_by('-priority').values())
+    result = []
+    [result.append(i) for i in routines if i['cron'][5].find(today) > -1]
+    return JsonResponse(data=result[0:10], safe=False)

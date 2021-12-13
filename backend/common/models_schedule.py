@@ -13,7 +13,7 @@ class JarviisSchedule:
         # TEST
         # schedule.every(5).seconds.do(j.test)
         # Routine Schedule
-        schedule.every().day.at("5:00").do(self.make_routine())
+        schedule.every().day.at("05:00").do(self.make_routine())
         # Log Schedule
         schedule.every().day.at("09:00").do(self.make_log())
         schedule.every().day.at("11:40").do(self.make_log())

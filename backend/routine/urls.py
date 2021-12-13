@@ -9,6 +9,8 @@ urlpatterns = [
     url(r'upload', views.upload),
     url(r'find_all', views.find_all),
     url(r'remove/(?P<pk>\w{0,500})$', views.remove),
+    url(r'make_routine/(?P<user_id>\w{0,500})$', views.make_routine),
+    url(r'today_top10/(?P<user_id>\w{0,500})$', views.today_top10),
     # url(r'modify', views.modify),
     # url(r'find/(?P<year>\d{4})-(?P<month>\d{2})-(?P<day>\d{2})$', views.find),
 ]
