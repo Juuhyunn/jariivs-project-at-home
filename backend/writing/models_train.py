@@ -60,3 +60,8 @@ class WritingTrain:
                           train_dataset=train_dataset)
         trainer.train()
         trainer.save_model()
+
+
+if __name__ == '__main__':
+    w = WritingTrain()
+    w.process()

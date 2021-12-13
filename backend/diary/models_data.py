@@ -1,5 +1,8 @@
+import os
 import random
-
+os.environ.setdefault("DJANGO_SETTINGS_MODULE", "api.settings")
+import django
+django.setup()
 from common.models import ValueObject, Reader, Printer
 from diary.models import Diary
 from drawing.models import Drawing
@@ -35,3 +38,7 @@ class DbUploader:
         #                      log_id=achieve_log,      # 이거 어떡하지
         #                      user_id=user_id)
         print('Diary DATA UPLOADED SUCCESSFULY!')
+
+if __name__ == '__main__':
+    d = DbUploader()
+    d.insert_data()
