@@ -25,7 +25,9 @@ SECRET_KEY = 'django-insecure-js&2-xw0&o$^ewxhjgcfr3tr0w!u*^!k&i!ka-@sabthpzj--4
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    "*"
+]
 
 
 # Application definition
@@ -38,7 +40,7 @@ INSTALLED_APPS = [
     'userlog',
     'location',
     'weather',
-    'machine',
+    # 'machine',
     'img',
     'flower',
     'rest_framework',

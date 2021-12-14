@@ -1,0 +1,330 @@
+#
+# There is insufficient memory for the Java Runtime Environment to continue.
+# Native memory allocation (mmap) failed to map 534773760 bytes for Failed to commit area from 0x00000000c0000000 to 0x00000000dfe00000 of length 534773760.
+# Possible reasons:
+#   The system is out of physical RAM or swap space
+#   The process is running with CompressedOops enabled, and the Java Heap may be blocking the growth of the native heap
+# Possible solutions:
+#   Reduce memory load on the system
+#   Increase physical memory or swap space
+#   Check if swap backing store is full
+#   Decrease Java heap size (-Xmx/-Xms)
+#   Decrease number of Java threads
+#   Decrease Java thread stack sizes (-Xss)
+#   Set larger code cache with -XX:ReservedCodeCacheSize=
+# This output file may be truncated or incomplete.
+#
+#  Out of Memory Error (./src/hotspot/os/windows/os_windows.cpp:3311), pid=7056, tid=7732
+#
+# JRE version:  (11.0.12+7) (build )
+# Java VM: OpenJDK 64-Bit Server VM (11.0.12+7-LTS, mixed mode, sharing, tiered, compressed oops, g1 gc, windows-amd64)
+# No core dump will be written. Minidumps are not enabled by default on client versions of Windows
+#
+
+---------------  S U M M A R Y ------------
+
+Command Line: -Dfile.encoding=UTF8 -ea -Xmx1024m 
+
+Host: Intel(R) Core(TM) i7-8700 CPU @ 3.20GHz, 12 cores, 31G,  Windows 10 , 64 bit Build 19041 (10.0.19041.1348)
+Time: Tue Dec 14 20:38:34 2021 대한민국 표준시 elapsed time: 0.014199 seconds (0d 0h 0m 0s)
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x00000169baf41000):  JavaThread "Unknown thread" [_thread_in_vm, id=7732, stack(0x0000001b5a000000,0x0000001b5a1f0000)]
+
+Stack: [0x0000001b5a000000,0x0000001b5a1f0000]
+Native frames: (J=compiled Java code, j=interpreted, Vv=VM code, C=native code)
+C  0x00007fff91641cea
+C  0x00007fff917cab4e
+C  0x00007fff917cc21f
+C  0x00007fff917cc8e3
+C  0x00007fff9128be68
+C  0x00007fff9163ee8a
+C  0x00007fff91633945
+C  0x00007fff91343aec
+C  0x00007fff91343972
+C  0x00007fff91348696
+C  0x00007fff9138d55f
+C  0x00007fff9138cf90
+C  0x00007fff91320bf8
+C  0x00007fff91321d56
+C  0x00007fff917a5ed7
+C  0x00007fff917a765f
+C  0x00007fff9139a2e9
+C  0x00007fff91788f60
+C  0x00007fff91401f1f
+C  0x00007fff914043f1
+C  [_jpype.cp38-win_amd64.pyd+0x27557]  JPContext::startJVM+0x107  (jp_context.cpp:217)
+C  [_jpype.cp38-win_amd64.pyd+0x532f8]  PyJPModule_startup+0x538  (pyjp_module.cpp:271)
+C  [python38.dll+0x127052]  cfunction_call_varargs+0xe2  (call.c:758)
+C  [python38.dll+0x125fa6]  _PyObject_MakeTpCall+0x106  (call.c:160)
+C  [python38.dll+0x2036b8]  call_function+0xa8  (ceval.c:4969)
+C  [python38.dll+0x200231]  _PyEval_EvalFrameDefault+0x3441  (ceval.c:3471)
+C  [python38.dll+0x2022d9]  _PyEval_EvalCodeWithName+0xa89  (ceval.c:4298)
+C  [python38.dll+0x12676f]  _PyFunction_Vectorcall+0x14f  (call.c:436)
+C  [python38.dll+0x203693]  call_function+0x83  (ceval.c:4963)
+C  [python38.dll+0x200271]  _PyEval_EvalFrameDefault+0x3481  (ceval.c:3516)
+C  [python38.dll+0x2022d9]  _PyEval_EvalCodeWithName+0xa89  (ceval.c:4298)
+C  [python38.dll+0x12676f]  _PyFunction_Vectorcall+0x14f  (call.c:436)
+C  [python38.dll+0x203693]  call_function+0x83  (ceval.c:4963)
+C  [python38.dll+0x200231]  _PyEval_EvalFrameDefault+0x3441  (ceval.c:3471)
+C  [python38.dll+0x2022d9]  _PyEval_EvalCodeWithName+0xa89  (ceval.c:4298)
+C  [python38.dll+0x12676f]  _PyFunction_Vectorcall+0x14f  (call.c:436)
+C  [python38.dll+0x125da3]  _PyObject_FastCallDict+0x53  (call.c:114)
+C  [python38.dll+0x1273d0]  _PyObject_Call_Prepend+0x90  (call.c:888)
+C  [python38.dll+0x194746]  slot_tp_init+0xd6  (typeobject.c:6791)
+C  [python38.dll+0x1868dc]  type_call+0xdc  (typeobject.c:995)
+C  [python38.dll+0x125fa6]  _PyObject_MakeTpCall+0x106  (call.c:160)
+C  [python38.dll+0x2036b8]  call_function+0xa8  (ceval.c:4969)
+C  [python38.dll+0x1fe03c]  _PyEval_EvalFrameDefault+0x124c  (ceval.c:3501)
+C  [python38.dll+0x126315]  function_code_fastcall+0x85  (call.c:286)
+C  [python38.dll+0x126698]  _PyFunction_Vectorcall+0x78  (call.c:411)
+C  [python38.dll+0x203693]  call_function+0x83  (ceval.c:4963)
+C  [python38.dll+0x20024a]  _PyEval_EvalFrameDefault+0x345a  (ceval.c:3487)
+C  [python38.dll+0x126315]  function_code_fastcall+0x85  (call.c:286)
+C  [python38.dll+0x126698]  _PyFunction_Vectorcall+0x78  (call.c:411)
+C  [python38.dll+0x203693]  call_function+0x83  (ceval.c:4963)
+C  [python38.dll+0x20024a]  _PyEval_EvalFrameDefault+0x345a  (ceval.c:3487)
+C  [python38.dll+0x2022d9]  _PyEval_EvalCodeWithName+0xa89  (ceval.c:4298)
+C  [python38.dll+0x270c9f]  run_eval_code_obj+0x13f  (pythonrun.c:1166)
+C  [python38.dll+0x270d91]  run_mod+0x81  (pythonrun.c:1189)
+C  [python38.dll+0x270878]  pyrun_file+0xa8  (pythonrun.c:1085)
+C  [python38.dll+0x26eaf1]  pyrun_simple_file+0x311  (pythonrun.c:439)
+C  [python38.dll+0x26ecc0]  PyRun_SimpleFileExFlags+0x60  (pythonrun.c:473)
+C  [python38.dll+0x972dd]  pymain_run_file+0x2dd  (main.c:391)
+C  [python38.dll+0x97f50]  pymain_run_python+0x4c0  (main.c:617)
+C  [python38.dll+0x98e42]  pymain_main+0x52  (main.c:1103)
+C  [python38.dll+0x98eb6]  Py_Main+0x26  (main.c:1116)
+C  [python.exe+0x14f8]  __scrt_common_main_seh+0x10c  (exe_common.inl:288)
+C  [KERNEL32.DLL+0x17034]
+C  [ntdll.dll+0x52651]
+
+
+---------------  P R O C E S S  ---------------
+
+Threads class SMR info:
+_java_thread_list=0x00000169bcdc0c30, length=0, elements={
+}
+
+Java Threads: ( => current thread )
+
+Other Threads:
+  0x00000169d81de000 GCTaskThread "GC Thread#0" [stack: 0x0000001b5e3d0000,0x0000001b5e5c0000] [id=15300]
+  0x00000169d94a9800 ConcurrentGCThread "G1 Main Marker" [stack: 0x0000001b5e5c0000,0x0000001b5e7b0000] [id=12404]
+  0x00000169d94aa000 ConcurrentGCThread "G1 Conc#0" [stack: 0x0000001b5e7b0000,0x0000001b5e9a0000] [id=15724]
+
+[error occurred during error reporting (printing all threads), id 0xc0000005, EXCEPTION_ACCESS_VIOLATION (0xc0000005) at pc=0x00007fff913302c7]
+
+VM state:not at safepoint (not fully initialized)
+
+VM Mutex/Monitor currently owned by a thread:  ([mutex/lock_event])
+[0x00000169bcd0fb10] Heap_lock - owner thread: 0x00000169baf41000
+
+Heap address: 0x00000000c0000000, size: 1024 MB, Compressed Oops mode: Non-zero based: 0x00000000c0000000
+Narrow klass base: 0x0000000000000000, Narrow klass shift: 0
+
+GC Heap History (0 events):
+No events
+
+Deoptimization events (0 events):
+No events
+
+Classes redefined (0 events):
+No events
+
+Internal exceptions (0 events):
+No events
+
+Events (1 events):
+Event: 0.010 Loaded shared library C:\Program Files\ojdkbuild\java-11-openjdk-11.0.12-1\bin\zip.dll
+
+
+Dynamic libraries:
+0x00007ff7ff710000 - 0x00007ff7ff72c000 	C:\ProgramData\Anaconda3\envs\kogpt\python.exe
+0x00007ff912b50000 - 0x00007ff912d45000 	C:\WINDOWS\SYSTEM32\ntdll.dll
+0x00007ff911920000 - 0x00007ff9119de000 	C:\WINDOWS\System32\KERNEL32.DLL
+0x00007ff910460000 - 0x00007ff910728000 	C:\WINDOWS\System32\KERNELBASE.dll
+0x00007ff910760000 - 0x00007ff910860000 	C:\WINDOWS\System32\ucrtbase.dll
+0x00007ff8ee9f0000 - 0x00007ff8eea09000 	C:\ProgramData\Anaconda3\envs\kogpt\VCRUNTIME140.dll
+0x00007ff8870a0000 - 0x00007ff887574000 	C:\ProgramData\Anaconda3\envs\kogpt\python38.dll
+0x00007ff912a10000 - 0x00007ff912a65000 	C:\WINDOWS\System32\SHLWAPI.dll
+0x00007ff912a70000 - 0x00007ff912b0e000 	C:\WINDOWS\System32\msvcrt.dll
+0x00007ff90a340000 - 0x00007ff90a34a000 	C:\WINDOWS\SYSTEM32\VERSION.dll
+0x00007ff9129a0000 - 0x00007ff912a0b000 	C:\WINDOWS\System32\WS2_32.dll
+0x00007ff9119e0000 - 0x00007ff911b0a000 	C:\WINDOWS\System32\RPCRT4.dll
+0x00007ff9128e0000 - 0x00007ff91298c000 	C:\WINDOWS\System32\ADVAPI32.dll
+0x00007ff911740000 - 0x00007ff9117db000 	C:\WINDOWS\System32\sechost.dll
+0x00007ff90fc20000 - 0x00007ff90fc38000 	C:\WINDOWS\SYSTEM32\CRYPTSP.dll
+0x00007ff90f2f0000 - 0x00007ff90f324000 	C:\WINDOWS\system32\rsaenh.dll
+0x00007ff910730000 - 0x00007ff910757000 	C:\WINDOWS\System32\bcrypt.dll
+0x00007ff90fb50000 - 0x00007ff90fb5c000 	C:\WINDOWS\SYSTEM32\CRYPTBASE.dll
+0x00007ff910a00000 - 0x00007ff910a83000 	C:\WINDOWS\System32\bcryptPrimitives.dll
+0x00007ff8ef2e0000 - 0x00007ff8ef2ef000 	C:\ProgramData\Anaconda3\envs\kogpt\python3.DLL
+0x00007ff8ee590000 - 0x00007ff8ee5a8000 	C:\ProgramData\Anaconda3\envs\kogpt\DLLs\_bz2.pyd
+0x00007ff8ed930000 - 0x00007ff8ed960000 	C:\ProgramData\Anaconda3\envs\kogpt\DLLs\_lzma.pyd
+0x00007ff8e83c0000 - 0x00007ff8e83e4000 	C:\ProgramData\Anaconda3\envs\kogpt\DLLs\_ctypes.pyd
+0x00007ff912250000 - 0x00007ff91237a000 	C:\WINDOWS\System32\ole32.dll
+0x00007ff911050000 - 0x00007ff9113a5000 	C:\WINDOWS\System32\combase.dll
+0x00007ff910f70000 - 0x00007ff910f9b000 	C:\WINDOWS\System32\GDI32.dll
+0x00007ff910430000 - 0x00007ff910452000 	C:\WINDOWS\System32\win32u.dll
+0x00007ff910a90000 - 0x00007ff910b9b000 	C:\WINDOWS\System32\gdi32full.dll
+0x00007ff910860000 - 0x00007ff9108fd000 	C:\WINDOWS\System32\msvcp_win.dll
+0x00007ff911580000 - 0x00007ff911721000 	C:\WINDOWS\System32\USER32.dll
+0x00007ff8ee9e0000 - 0x00007ff8ee9eb000 	C:\ProgramData\Anaconda3\envs\kogpt\DLLs\libffi-8.dll
+0x00007ff912810000 - 0x00007ff9128dd000 	C:\WINDOWS\System32\OLEAUT32.dll
+0x00007ff910ba0000 - 0x00007ff910bd0000 	C:\WINDOWS\System32\IMM32.DLL
+0x0000000062a80000 - 0x0000000064833000 	C:\Users\bitcamp\AppData\Roaming\Python\Python38\site-packages\numpy\.libs\libopenblas.XWYDX2IKJW2NMTWSFYNGFUWKQU3LYTCZ.gfortran-win_amd64.dll
+0x00007ff886da0000 - 0x00007ff887095000 	C:\Users\bitcamp\AppData\Roaming\Python\Python38\site-packages\numpy\core\_multiarray_umath.cp38-win_amd64.pyd
+0x00007ff8e9730000 - 0x00007ff8e9750000 	C:\Users\bitcamp\AppData\Roaming\Python\Python38\site-packages\numpy\core\_multiarray_tests.cp38-win_amd64.pyd
+0x00007ff8e88b0000 - 0x00007ff8e88c7000 	C:\ProgramData\Anaconda3\envs\kogpt\DLLs\_socket.pyd
+0x00007ff90f680000 - 0x00007ff90f6bb000 	C:\WINDOWS\SYSTEM32\IPHLPAPI.DLL
+0x00007ff8ec560000 - 0x00007ff8ec569000 	C:\ProgramData\Anaconda3\envs\kogpt\DLLs\select.pyd
+0x00007ff8ec200000 - 0x00007ff8ec209000 	C:\Users\bitcamp\AppData\Roaming\Python\Python38\site-packages\numpy\linalg\lapack_lite.cp38-win_amd64.pyd
+0x00007ff8e8030000 - 0x00007ff8e805a000 	C:\Users\bitcamp\AppData\Roaming\Python\Python38\site-packages\numpy\linalg\_umath_linalg.cp38-win_amd64.pyd
+0x00007ff8e6430000 - 0x00007ff8e6450000 	C:\Users\bitcamp\AppData\Roaming\Python\Python38\site-packages\numpy\fft\_pocketfft_internal.cp38-win_amd64.pyd
+0x00007ff8aff60000 - 0x00007ff8afff4000 	C:\Users\bitcamp\AppData\Roaming\Python\Python38\site-packages\numpy\random\mtrand.cp38-win_amd64.pyd
+0x00007ff8b1400000 - 0x00007ff8b1429000 	C:\Users\bitcamp\AppData\Roaming\Python\Python38\site-packages\numpy\random\bit_generator.cp38-win_amd64.pyd
+0x00007ff8b0350000 - 0x00007ff8b0382000 	C:\Users\bitcamp\AppData\Roaming\Python\Python38\site-packages\numpy\random\_common.cp38-win_amd64.pyd
+0x00007ff8e8420000 - 0x00007ff8e842c000 	C:\ProgramData\Anaconda3\envs\kogpt\DLLs\_hashlib.pyd
+0x00007ff886a50000 - 0x00007ff886d9c000 	C:\ProgramData\Anaconda3\envs\kogpt\Library\bin\libcrypto-1_1-x64.dll
+0x00007ff8afda0000 - 0x00007ff8afde2000 	C:\Users\bitcamp\AppData\Roaming\Python\Python38\site-packages\numpy\random\_bounded_integers.cp38-win_amd64.pyd
+0x00007ff8d83d0000 - 0x00007ff8d83e8000 	C:\Users\bitcamp\AppData\Roaming\Python\Python38\site-packages\numpy\random\_mt19937.cp38-win_amd64.pyd
+0x00007ff8bd3a0000 - 0x00007ff8bd3b7000 	C:\Users\bitcamp\AppData\Roaming\Python\Python38\site-packages\numpy\random\_philox.cp38-win_amd64.pyd
+0x00007ff8b06b0000 - 0x00007ff8b06c9000 	C:\Users\bitcamp\AppData\Roaming\Python\Python38\site-packages\numpy\random\_pcg64.cp38-win_amd64.pyd
+0x00007ff8b0500000 - 0x00007ff8b0512000 	C:\Users\bitcamp\AppData\Roaming\Python\Python38\site-packages\numpy\random\_sfc64.cp38-win_amd64.pyd
+0x00007ff8a2be0000 - 0x00007ff8a2c8e000 	C:\Users\bitcamp\AppData\Roaming\Python\Python38\site-packages\numpy\random\_generator.cp38-win_amd64.pyd
+0x00007ff8e8020000 - 0x00007ff8e8027000 	C:\ProgramData\Anaconda3\envs\kogpt\lib\site-packages\matplotlib\_c_internal_utils.cp38-win_amd64.pyd
+0x00007ff911b10000 - 0x00007ff91224f000 	C:\WINDOWS\System32\SHELL32.dll
+0x00007ff8af7b0000 - 0x00007ff8af7e5000 	C:\ProgramData\Anaconda3\envs\kogpt\DLLs\pyexpat.pyd
+0x00007ff8aedc0000 - 0x00007ff8aedf9000 	C:\ProgramData\Anaconda3\envs\kogpt\DLLs\_elementtree.pyd
+0x00007ff8a24e0000 - 0x00007ff8a2589000 	C:\ProgramData\Anaconda3\envs\kogpt\lib\site-packages\PIL\_imaging.cp38-win_amd64.pyd
+0x00007ff8af640000 - 0x00007ff8af659000 	C:\ProgramData\Anaconda3\envs\kogpt\zlib.dll
+0x00007ff89b590000 - 0x00007ff89b632000 	C:\ProgramData\Anaconda3\envs\kogpt\Library\bin\tiff.dll
+0x00007ff8ae870000 - 0x00007ff8ae89a000 	C:\ProgramData\Anaconda3\envs\kogpt\Library\bin\liblzma.dll
+0x00007ff89b510000 - 0x00007ff89b58c000 	C:\ProgramData\Anaconda3\envs\kogpt\Library\bin\zstd.dll
+0x00007ff8addb0000 - 0x00007ff8addd9000 	C:\ProgramData\Anaconda3\envs\kogpt\lib\site-packages\matplotlib\_path.cp38-win_amd64.pyd
+0x00007ff8f9650000 - 0x00007ff8f96de000 	C:\WINDOWS\SYSTEM32\MSVCP140.dll
+0x00007ff8ff190000 - 0x00007ff8ff19c000 	C:\WINDOWS\SYSTEM32\VCRUNTIME140_1.dll
+0x00007ff8aeda0000 - 0x00007ff8aedc0000 	C:\ProgramData\Anaconda3\envs\kogpt\lib\site-packages\matplotlib\ft2font.cp38-win_amd64.pyd
+0x00007ff89b470000 - 0x00007ff89b50f000 	C:\ProgramData\Anaconda3\envs\kogpt\Library\bin\freetype.dll
+0x00007ff8a9ed0000 - 0x00007ff8a9f04000 	C:\ProgramData\Anaconda3\envs\kogpt\Library\bin\libpng16.dll
+0x00007ff8a94f0000 - 0x00007ff8a9513000 	C:\ProgramData\Anaconda3\envs\kogpt\lib\site-packages\kiwisolver.cp38-win_amd64.pyd
+0x00007ff8a4b30000 - 0x00007ff8a4b7b000 	C:\ProgramData\Anaconda3\envs\kogpt\DLLs\_decimal.pyd
+0x00007ff8a5160000 - 0x00007ff8a518b000 	C:\ProgramData\Anaconda3\envs\kogpt\DLLs\_ssl.pyd
+0x00007ff910270000 - 0x00007ff9103c6000 	C:\WINDOWS\System32\CRYPT32.dll
+0x00007ff89a780000 - 0x00007ff89a82c000 	C:\ProgramData\Anaconda3\envs\kogpt\Library\bin\libssl-1_1-x64.dll
+0x00007ff882a60000 - 0x00007ff882b1d000 	C:\ProgramData\Anaconda3\envs\kogpt\lib\site-packages\_jpype.cp38-win_amd64.pyd
+0x00007ff8e62b0000 - 0x00007ff8e62b9000 	C:\ProgramData\Anaconda3\envs\kogpt\DLLs\_queue.pyd
+0x00007ff90f9c0000 - 0x00007ff90fa2a000 	C:\WINDOWS\system32\mswsock.dll
+0x00007ff898920000 - 0x00007ff898a2f000 	C:\ProgramData\Anaconda3\envs\kogpt\DLLs\unicodedata.pyd
+0x00007ff8823f0000 - 0x00007ff8827cc000 	C:\ProgramData\Anaconda3\envs\kogpt\lib\site-packages\lxml\etree.cp38-win_amd64.pyd
+0x00007ff8aecd0000 - 0x00007ff8aecfc000 	C:\ProgramData\Anaconda3\envs\kogpt\lib\site-packages\lxml\_elementpath.cp38-win_amd64.pyd
+0x00007ff8add90000 - 0x00007ff8adda3000 	C:\ProgramData\Anaconda3\envs\kogpt\DLLs\_asyncio.pyd
+0x00007ff8e5b90000 - 0x00007ff8e5b9e000 	C:\ProgramData\Anaconda3\envs\kogpt\DLLs\_overlapped.pyd
+0x00007ff886860000 - 0x00007ff886a49000 	C:\ProgramData\Anaconda3\envs\kogpt\lib\site-packages\cryptography\hazmat\bindings\_rust.pyd
+0x00007ff8e55b0000 - 0x00007ff8e55b8000 	C:\ProgramData\Anaconda3\envs\kogpt\lib\site-packages\markupsafe\_speedups.cp38-win_amd64.pyd
+0x00007ff886580000 - 0x00007ff886860000 	C:\ProgramData\Anaconda3\envs\kogpt\lib\site-packages\cryptography\hazmat\bindings\_openssl.pyd
+0x00007ff8a3910000 - 0x00007ff8a3944000 	C:\ProgramData\Anaconda3\envs\kogpt\lib\site-packages\_cffi_backend.cp38-win_amd64.pyd
+0x00007ff886470000 - 0x00007ff886573000 	C:\ProgramData\Anaconda3\envs\kogpt\lib\site-packages\pandas\_libs\interval.cp38-win_amd64.pyd
+0x00007ff886330000 - 0x00007ff886463000 	C:\ProgramData\Anaconda3\envs\kogpt\lib\site-packages\pandas\_libs\hashtable.cp38-win_amd64.pyd
+0x00007ff8a2bb0000 - 0x00007ff8a2bdd000 	C:\ProgramData\Anaconda3\envs\kogpt\lib\site-packages\pandas\_libs\missing.cp38-win_amd64.pyd
+0x00007ff8a4b10000 - 0x00007ff8a4b2e000 	C:\ProgramData\Anaconda3\envs\kogpt\lib\site-packages\pandas\_libs\tslibs\dtypes.cp38-win_amd64.pyd
+0x00007ff8a2b70000 - 0x00007ff8a2bac000 	C:\ProgramData\Anaconda3\envs\kogpt\lib\site-packages\pandas\_libs\tslibs\conversion.cp38-win_amd64.pyd
+0x00007ff8e4470000 - 0x00007ff8e447f000 	C:\ProgramData\Anaconda3\envs\kogpt\lib\site-packages\pandas\_libs\tslibs\base.cp38-win_amd64.pyd
+0x00007ff8a24a0000 - 0x00007ff8a24d4000 	C:\ProgramData\Anaconda3\envs\kogpt\lib\site-packages\pandas\_libs\tslibs\nattype.cp38-win_amd64.pyd
+0x00007ff8db3b0000 - 0x00007ff8db3bf000 	C:\ProgramData\Anaconda3\envs\kogpt\lib\site-packages\pandas\_libs\tslibs\np_datetime.cp38-win_amd64.pyd
+0x00007ff89b430000 - 0x00007ff89b465000 	C:\ProgramData\Anaconda3\envs\kogpt\lib\site-packages\pandas\_libs\tslibs\timezones.cp38-win_amd64.pyd
+0x00000169b61b0000 - 0x00000169b61b3000 	C:\WINDOWS\SYSTEM32\tzres.dll
+0x00007ff89b3f0000 - 0x00007ff89b42c000 	C:\ProgramData\Anaconda3\envs\kogpt\lib\site-packages\pandas\_libs\tslibs\tzconversion.cp38-win_amd64.pyd
+0x00007ff8a4300000 - 0x00007ff8a4312000 	C:\ProgramData\Anaconda3\envs\kogpt\lib\site-packages\pandas\_libs\tslibs\ccalendar.cp38-win_amd64.pyd
+0x00007ff898400000 - 0x00007ff898453000 	C:\ProgramData\Anaconda3\envs\kogpt\lib\site-packages\pandas\_libs\tslibs\parsing.cp38-win_amd64.pyd
+0x00007ff886260000 - 0x00007ff886328000 	C:\ProgramData\Anaconda3\envs\kogpt\lib\site-packages\pandas\_libs\tslibs\offsets.cp38-win_amd64.pyd
+0x00007ff8861f0000 - 0x00007ff886251000 	C:\ProgramData\Anaconda3\envs\kogpt\lib\site-packages\pandas\_libs\tslibs\timedeltas.cp38-win_amd64.pyd
+0x00007ff89a740000 - 0x00007ff89a780000 	C:\ProgramData\Anaconda3\envs\kogpt\lib\site-packages\pandas\_libs\tslibs\fields.cp38-win_amd64.pyd
+0x00007ff892240000 - 0x00007ff89228f000 	C:\ProgramData\Anaconda3\envs\kogpt\lib\site-packages\pandas\_libs\tslibs\strptime.cp38-win_amd64.pyd
+0x00007ff886180000 - 0x00007ff8861e8000 	C:\ProgramData\Anaconda3\envs\kogpt\lib\site-packages\pandas\_libs\tslibs\timestamps.cp38-win_amd64.pyd
+0x00007ff8a2480000 - 0x00007ff8a2493000 	C:\ProgramData\Anaconda3\envs\kogpt\lib\site-packages\pandas\_libs\properties.cp38-win_amd64.pyd
+0x00007ff886120000 - 0x00007ff88617a000 	C:\ProgramData\Anaconda3\envs\kogpt\lib\site-packages\pandas\_libs\tslibs\period.cp38-win_amd64.pyd
+0x00007ff8860e0000 - 0x00007ff886114000 	C:\ProgramData\Anaconda3\envs\kogpt\lib\site-packages\pandas\_libs\tslibs\vectorized.cp38-win_amd64.pyd
+0x00007ff898900000 - 0x00007ff898912000 	C:\ProgramData\Anaconda3\envs\kogpt\lib\site-packages\pandas\_libs\ops_dispatch.cp38-win_amd64.pyd
+0x00007ff885f90000 - 0x00007ff8860d4000 	C:\ProgramData\Anaconda3\envs\kogpt\lib\site-packages\pandas\_libs\algos.cp38-win_amd64.pyd
+0x00007ff885f10000 - 0x00007ff885f89000 	C:\ProgramData\Anaconda3\envs\kogpt\lib\site-packages\pandas\_libs\lib.cp38-win_amd64.pyd
+0x00007ff885ee0000 - 0x00007ff885f06000 	C:\ProgramData\Anaconda3\envs\kogpt\lib\site-packages\pandas\_libs\tslib.cp38-win_amd64.pyd
+0x00007ff885eb0000 - 0x00007ff885edb000 	C:\ProgramData\Anaconda3\envs\kogpt\lib\site-packages\pandas\_libs\hashing.cp38-win_amd64.pyd
+0x00007ff885c90000 - 0x00007ff885ea6000 	C:\ProgramData\Anaconda3\envs\kogpt\lib\site-packages\pyarrow\lib.cp38-win_amd64.pyd
+0x00007ff8847a0000 - 0x00007ff885b94000 	C:\ProgramData\Anaconda3\envs\kogpt\lib\site-packages\pyarrow\arrow.dll
+0x00007ff885ba0000 - 0x00007ff885c81000 	C:\ProgramData\Anaconda3\envs\kogpt\lib\site-packages\pyarrow\arrow_python.dll
+0x00007ff908f40000 - 0x00007ff90904c000 	C:\WINDOWS\SYSTEM32\WINHTTP.dll
+0x00007ff905b30000 - 0x00007ff906008000 	C:\WINDOWS\SYSTEM32\WININET.dll
+0x00007ff910170000 - 0x00007ff91019e000 	C:\WINDOWS\SYSTEM32\USERENV.dll
+0x00007ff884770000 - 0x00007ff884795000 	C:\ProgramData\Anaconda3\envs\kogpt\lib\site-packages\pyarrow\_hdfsio.cp38-win_amd64.pyd
+0x00007ff884730000 - 0x00007ff884763000 	C:\ProgramData\Anaconda3\envs\kogpt\lib\site-packages\pandas\_libs\ops.cp38-win_amd64.pyd
+0x00007ff884700000 - 0x00007ff884727000 	C:\ProgramData\Anaconda3\envs\kogpt\lib\site-packages\numexpr\interpreter.cp38-win_amd64.pyd
+0x00007ff883360000 - 0x00007ff8846f9000 	C:\ProgramData\Anaconda3\envs\kogpt\Library\bin\mkl_rt.1.dll
+0x00007ff90e150000 - 0x00007ff90e162000 	C:\WINDOWS\SYSTEM32\kernel.appcore.dll
+0x00007ff8983e0000 - 0x00007ff8983f9000 	C:\ProgramData\Anaconda3\envs\kogpt\lib\site-packages\bottleneck\reduce.cp38-win_amd64.pyd
+0x00007ff8d8340000 - 0x00007ff8d834a000 	C:\ProgramData\Anaconda3\envs\kogpt\lib\site-packages\bottleneck\nonreduce.cp38-win_amd64.pyd
+0x00007ff8d82b0000 - 0x00007ff8d82bf000 	C:\ProgramData\Anaconda3\envs\kogpt\lib\site-packages\bottleneck\nonreduce_axis.cp38-win_amd64.pyd
+0x00007ff883340000 - 0x00007ff883359000 	C:\ProgramData\Anaconda3\envs\kogpt\lib\site-packages\bottleneck\move.cp38-win_amd64.pyd
+0x00007ff883320000 - 0x00007ff883338000 	C:\ProgramData\Anaconda3\envs\kogpt\lib\site-packages\pandas\_libs\arrays.cp38-win_amd64.pyd
+0x00007ff8832a0000 - 0x00007ff883315000 	C:\ProgramData\Anaconda3\envs\kogpt\lib\site-packages\pandas\_libs\index.cp38-win_amd64.pyd
+
+dbghelp: loaded successfully - version: 4.0.5 - missing functions: none
+symbol engine: initialized successfully - sym options: 0x614 - pdb path: .;C:\ProgramData\Anaconda3\envs\kogpt;C:\WINDOWS\SYSTEM32;C:\ProgramData\Anaconda3\envs\kogpt\DLLs;C:\Users\bitcamp\AppData\Roaming\Python\Python38\site-packages\numpy\.libs;C:\Users\bitcamp\AppData\Roaming\Python\Python38\site-packages\numpy\core;C:\Users\bitcamp\AppData\Roaming\Python\Python38\site-packages\numpy\linalg;C:\Users\bitcamp\AppData\Roaming\Python\Python38\site-packages\numpy\fft;C:\Users\bitcamp\AppData\Roaming\Python\Python38\site-packages\numpy\random;C:\ProgramData\Anaconda3\envs\kogpt\Library\bin;C:\ProgramData\Anaconda3\envs\kogpt\lib\site-packages\matplotlib;C:\ProgramData\Anaconda3\envs\kogpt\lib\site-packages\PIL;C:\ProgramData\Anaconda3\envs\kogpt\lib\site-packages;C:\ProgramData\Anaconda3\envs\kogpt\lib\site-packages\lxml;C:\ProgramData\Anaconda3\envs\kogpt\lib\site-packages\cryptography\hazmat\bindings;C:\ProgramData\Anaconda3\envs\kogpt\lib\site-packages\markupsafe;C:\ProgramData\Anaconda3\envs\kogpt\lib\site-packages\pandas\_libs;C:\ProgramData\Anaconda3\envs\kogpt\lib\site-packages\pandas\_libs\tslibs;C:\ProgramData\Anaconda3\envs\kogpt\lib\site-packages\pyarrow;C:\ProgramData\Anaconda3\envs\kogpt\lib\site-packages\numexpr;C:\ProgramData\Anaconda3\envs\kogpt\lib\site-packages\bottleneck;C:\ProgramData\Anaconda3\envs\kogpt\lib\site-packages\pandas\_libs\window;C:\ProgramData\Anaconda3\envs\kogpt\lib\site-packages\MySQLdb;C:\ProgramData\Anaconda3\envs\kogpt\lib\site-packages\tokenizers;C:\ProgramData\Anaconda3\envs\kogpt\lib\site-packages\torch\lib;C:\ProgramData\Anaconda3\envs\kogpt\lib\site-packages\torch;C:\Users\bitcamp\AppData\Roaming\Python\Python38\site-packages\tensorflow\python;C:\Users\bitcamp\AppData\Roaming\Python\Python38\site-packages\google\protobuf\internal;C:\Users\bitcamp\AppData\Roaming\Python\Python38\site-packages\google\protobuf\pyext;C:\Users\bitcamp\AppData\Roaming\Python\Python38\site-packages\wrapt;C:\Users\bitcamp\AppData\Roaming\Python\Python38\site-packages\tensorflow\python\profiler\internal;C:\Users\bitcamp\AppData\Roaming\Python\Python38\site-packages\h5py;C:\Users\bitcamp\AppData\Roaming\Python\Python38\site-packages\yaml;C:\Users\bitcamp\AppData\Roaming\Python\Python38\site-packages\scipy\.libs;C:\Users\bitcamp\AppData\Roaming\Python\Python38\site-packages\scipy\_lib;C:\Users\bitcamp\AppData\Roaming\Python\Python38\site-packages\scipy\_lib\_uarray;C:\Users\bitcamp\AppData\Roaming\Python\Python38\site-packages\scipy\fft\_pocketfft;C:\Users\bitcamp\AppData\Roaming\Python\Python38\site-packages\scipy\sparse;C:\Users\bitcamp\AppData\Roaming\Python\Python38\site-packages\scipy\sparse\csgraph;C:\Users\bitcamp\AppData\Roaming\Python\Python38\site-packages\tensorflow\lite\experimental\microfrontend\python\ops;C:\Users\bitcamp\AppData\Roaming\Python\Python38\site-packages\scipy\ndimage;C:\Users\bitcamp\AppData\Roaming\Python\Python38\site-packages\scipy\linalg;C:\Program Files\ojdkbuild\java-11-openjdk-11.0.12-1\bin\server;C:\Program Files\ojdkbuild\java-11-openjdk-11.0.12-1\bin
+
+VM Arguments:
+jvm_args: -Dfile.encoding=UTF8 -ea -Xmx1024m 
+java_command: <unknown>
+java_class_path (initial): C:\ProgramData\Anaconda3\envs\kogpt\Lib\site-packages\konlpy\java;C:\ProgramData\Anaconda3\envs\kogpt\Lib\site-packages\konlpy\java\bin;C:\ProgramData\Anaconda3\envs\kogpt\Lib\site-packages\konlpy\java\*;C:\ProgramData\Anaconda3\envs\kogpt\Lib\site-packages\konlpy\java\jhannanum-0.8.4.jar;C:\ProgramData\Anaconda3\envs\kogpt\Lib\site-packages\konlpy\java\kkma-2.0.jar;C:\ProgramData\Anaconda3\envs\kogpt\Lib\site-packages\konlpy\java\aho-corasick.jar;C:\ProgramData\Anaconda3\envs\kogpt\Lib\site-packages\konlpy\java\shineware-common-1.0.jar;C:\ProgramData\Anaconda3\envs\kogpt\Lib\site-packages\konlpy\java\shineware-ds-1.0.jar;C:\ProgramData\Anaconda3\envs\kogpt\Lib\site-packages\konlpy\java\komoran-3.0.jar;C:\ProgramData\Anaconda3\envs\kogpt\Lib\site-packages\konlpy\java\snakeyaml-1.12.jar;C:\ProgramData\Anaconda3\envs\kogpt\Lib\site-packages\konlpy\java\scala-library-2.12.3.jar;C:\ProgramData\Anaconda3\envs\kogpt\Lib\site-packages\konlpy\java\open-korean-text-2.1.0.jar;C:\ProgramData\Anaconda3\envs\kogpt\Lib\site-packages\konlpy\java\twitter-text-1.14.7.jar;C:\ProgramData\Anaconda3\envs\kogpt\Lib\site-packages\konlpy\java\*
+Launcher Type: generic
+
+[Global flags]
+     intx CICompilerCount                          = 4                                         {product} {ergonomic}
+     uint ConcGCThreads                            = 3                                         {product} {ergonomic}
+     uint G1ConcRefinementThreads                  = 10                                        {product} {ergonomic}
+   size_t G1HeapRegionSize                         = 1048576                                   {product} {ergonomic}
+    uintx GCDrainStackTargetSize                   = 64                                        {product} {ergonomic}
+   size_t InitialHeapSize                          = 534773760                                 {product} {ergonomic}
+   size_t MarkStackSize                            = 4194304                                   {product} {ergonomic}
+   size_t MaxHeapSize                              = 1073741824                                {product} {command line}
+   size_t MinHeapDeltaBytes                        = 1048576                                   {product} {ergonomic}
+    uintx NonNMethodCodeHeapSize                   = 5836300                                {pd product} {ergonomic}
+    uintx NonProfiledCodeHeapSize                  = 122910970                              {pd product} {ergonomic}
+    uintx ProfiledCodeHeapSize                     = 122910970                              {pd product} {ergonomic}
+    uintx ReservedCodeCacheSize                    = 251658240                              {pd product} {ergonomic}
+     bool SegmentedCodeCache                       = true                                      {product} {ergonomic}
+     bool UseCompressedClassPointers               = true                                 {lp64_product} {ergonomic}
+     bool UseCompressedOops                        = true                                 {lp64_product} {ergonomic}
+     bool UseG1GC                                  = true                                      {product} {ergonomic}
+     bool UseLargePagesIndividualAllocation        = false                                  {pd product} {ergonomic}
+
+Logging:
+Log output configuration:
+ #0: stdout all=warning uptime,level,tags
+ #1: stderr all=off uptime,level,tags
+
+Environment Variables:
+JAVA_HOME=C:\Program Files\ojdkbuild\java-11-openjdk-11.0.12-1
+PATH=C:\ProgramData\Anaconda3\envs\kogpt;C:\ProgramData\Anaconda3\envs\kogpt\Library\mingw-w64\bin;C:\ProgramData\Anaconda3\envs\kogpt\Library\usr\bin;C:\ProgramData\Anaconda3\envs\kogpt\Library\bin;C:\ProgramData\Anaconda3\envs\kogpt\Scripts;C:\ProgramData\Anaconda3\envs\kogpt\bin;C:\ProgramData\Anaconda3\condabin;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v11.5\bin;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v11.5\libnvvp;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0;C:\WINDOWS\System32\OpenSSH;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;C:\ProgramData\Anaconda3;C:\ProgramData\Anaconda3\Scripts;C:\ProgramData\Anaconda3\Library\bin;C:\ProgramData\Anaconda3\Library\mingw-w64\bin;C:\Program Files\Git\cmd;C:\Program Files\nodejs;C:\Program Files\nodejs;C:\Program Files\NVIDIA Corporation\Nsight Compute 2021.3.0;C:\Program Files\ojdkbuild\java-11-openjdk-11.0.12-1\bin;C:\Users\bitcamp\AppData\Local\Programs\Microsoft VS Code\bin;C:\Program Files\mingw-w64\x86_64-8.1.0-posix-seh-rt_v6-rev0\mingw64\bin;C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133\bin\Hostx64\x64;C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Auxiliary\Build\vcvars64.bat;C:\Program Files (x86)\Google\Cloud SDK\google-cloud-sdk\bin;C:\Program Files\Docker\Docker\resources\bin;C:\ProgramData\DockerDesktop\version-bin;C:\Users\bitcamp\AppData\Local\Microsoft\WindowsApps;.;C:\Program Files\JetBrains\PyCharm 2021.2.3\bin;.;C:\Users\bitcamp\AppData\Roaming\npm;C:\Users\bitcamp\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\bitcamp\AppData\Roaming\Python\Python38\site-packages\scipy\.libs
+USERNAME=bitcamp
+OS=Windows_NT
+PROCESSOR_IDENTIFIER=Intel64 Family 6 Model 158 Stepping 10, GenuineIntel
+
+
+
+---------------  S Y S T E M  ---------------
+
+OS: Windows 10 , 64 bit Build 19041 (10.0.19041.1348)
+OS uptime: 2 days 2:32 hours
+Hyper-V role detected
+
+CPU:total 12 (initial active 12) (6 cores per cpu, 2 threads per core) family 6 model 158 stepping 10 microcode 0xb4, cmov, cx8, fxsr, mmx, sse, sse2, sse3, ssse3, sse4.1, sse4.2, popcnt, avx, avx2, aes, clmul, erms, rtm, 3dnowpref, lzcnt, ht, tsc, tscinvbit, bmi1, bmi2, adx, fma
+
+Memory: 4k page, system-wide physical 32541M (980M free)
+TotalPageFile size 50818M (AvailPageFile size 473M)
+current process WorkingSet (physical memory assigned to process): 406M, peak: 406M
+current process commit charge ("private bytes"): 5721M, peak: 6216M
+
+vm_info: OpenJDK 64-Bit Server VM (11.0.12+7-LTS) for windows-amd64 JRE (11.0.12+7-LTS), built on Jul 24 2021 13:53:49 by "" with unknown MS VC++:1916
+
+END.

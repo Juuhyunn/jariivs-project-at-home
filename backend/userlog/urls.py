@@ -11,4 +11,5 @@ urlpatterns = [
     url(r'remove/(?P<pk>\w{0,500})$', views.remove),
     url(r'create', views.create),
     url(r'list/(?P<year>\d{4})-(?P<month>\d{2})-(?P<day>\d{2})$', views.list_by_date),
+    url(r'search/(?P<keyword>[ㄱ-힣]{0,500})$', views.search),
 ]

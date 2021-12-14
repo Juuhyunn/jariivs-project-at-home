@@ -126,3 +126,14 @@ def list_by_date(request, year, month, day):
     serializer = UserLogSerializer(userlog, many=True)
     ic(serializer.data)
     return JsonResponse(data = serializer.data, safe=False)
+
+
+@api_view(['GET', 'POST'])
+@parser_classes([JSONParser])
+def search(request, keyword):
+    ic("********** search **********")
+    ic(f'keyword : {keyword}')
+    userlog = UserLog.objects.filter(contents__icontains= keyword)
+    serializer = UserLogSerializer(userlog, many=True)
+    ic(serializer.data)
+    return JsonResponse(data = serializer.data, safe=False)
