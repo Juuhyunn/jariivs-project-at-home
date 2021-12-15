@@ -40,7 +40,7 @@ INSTALLED_APPS = [
     'userlog',
     'location',
     'weather',
-    # 'machine',
+    'machine',
     'img',
     'flower',
     'rest_framework',

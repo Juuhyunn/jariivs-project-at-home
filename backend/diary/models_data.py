@@ -36,13 +36,13 @@ class DbUploader:
         # topic_w = ['냠냠', '남자친구', '배불러']
         # topic_d = ["face", "computer", "bear"]
         # log = UserLog.objects.get(pk=achieve_log)
-        # self.vo.context = self.write_path
-        # w = Writing(self.vo)
-        # writing = ''.join(w.process(i) for i in topic_w)
-        # self.vo.context = self.draw_path
+        self.vo.context = self.write_path
+        w = Writing(self.vo)
+        writing = ''.join(w.process(i) for i in contents)
+        self.vo.context = self.draw_path
         # drawing = Drawing(self.vo).process(topic_d)
         # writing = f'오늘은 {log.location} 갔다!' + writing if random.randint(0, 1) == 0 else writing
-        # print(f"writing : {writing}")
+        print(f"writing : {writing}")
         # print(f"drawing : {drawing}")
         # Diary.objects.create(weather=log.weather,
         #                      location=log.location,
@@ -53,7 +53,7 @@ class DbUploader:
         #                      user_id=user_id)
         print('Diary DATA UPLOADED SUCCESSFULY!')
 
+
 if __name__ == '__main__':
     d = DbUploader()
     d.insert_data()
-    # topic 뽑는거!!!
